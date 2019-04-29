@@ -3,7 +3,7 @@
         <b-upload @input="uploadImage">
             <a class="button is-primary is-rounded">
                 <b-icon icon="upload" />
-                <span>Carica</span>
+                <span class="hide-on-mobile">Carica</span>
             </a>
         </b-upload>
     </b-field>
@@ -23,3 +23,11 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+@media only screen and (max-width: 360px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
+</style>

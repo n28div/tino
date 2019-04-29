@@ -34,8 +34,10 @@ export default {
 
     computed: {
         imageData: function() {
+            let loading = this.$loading.open();
             let canvas = this.$refs.cropper.getCroppedCanvas();
             let b64data = canvas.toDataURL();
+            loading.close();
             return b64data;
         },
     },
@@ -56,7 +58,9 @@ export default {
         },
 
         doneEditing: function() {
+            let loading = this.$loading.open();
             this.$store.dispatch('REPLACE_IMAGE_BASE64', {image: this.image, newBase64: this.imageData});
+            loading.close();
             this.$router.push({name: 'app'});
         },
     },

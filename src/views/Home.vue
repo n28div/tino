@@ -16,6 +16,9 @@
     </div>
   
     <div class="hero-body">
+        <b-message :active.sync="mobileAlert" aria-close-label="Close message" class="hide-on-desktop" title="Attenzione" type="is-warning">
+          Su uno smartphone tino potrebbe risultare lento, considerane l'utilizzo su un dispositivo diverso per performance migliori!
+        </b-message>
       <ImageGallery />
     </div>
 
@@ -37,6 +40,11 @@ export default {
     ControlHeader,
     ImageGallery,
   },
+  data() {
+    return {
+      mobileAlert: true,
+    }
+  },
   computed: {
     ...mapState(['images', 'generatedFiles', 'sheet']),
   },
@@ -52,6 +60,15 @@ export default {
     downloadSheet: function(gf) {
       saveAs(gf, `bigliettino_${this.generatedFiles.indexOf(gf) + 1}.png`);
     } 
-  }
+  },
 }
 </script>
+
+<style scoped>
+@media only screen and (min-width: 480px) {
+    .hide-on-desktop {
+        display: none;
+    }
+}
+</style>
+

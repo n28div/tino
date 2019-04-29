@@ -12,7 +12,7 @@
             <div class="navbar-item" v-if="$store.state.images.length > 0">
                 <b-button type="is-success" icon-left="wrench" rounded
                           @click="$emit('build-sheet')">
-                    Genera
+                    <span class="hide-on-mobile">Genera</span>
                 </b-button>
             </div>
         </div>
@@ -31,3 +31,11 @@ export default {
     },
 }
 </script>
+
+<style scoped>
+@media only screen and (max-width: 360px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
+</style>

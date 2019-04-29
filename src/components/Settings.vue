@@ -2,7 +2,7 @@
     <div>
         <b-field>
             <b-button type="is-dark" @click="showSettingsModal=true" rounded icon-left="settings">
-                Impostazioni
+                <span class="hide-on-mobile">Impostazioni</span>
             </b-button>
         </b-field>
 
@@ -86,6 +86,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+@media only screen and (max-width: 360px) {
+    .hide-on-mobile {
+        display: none;
+    }
+}
 </style>
